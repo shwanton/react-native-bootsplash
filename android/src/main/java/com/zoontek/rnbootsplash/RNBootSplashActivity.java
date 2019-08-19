@@ -12,8 +12,8 @@ public class RNBootSplashActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
 
     try {
-      Intent intent = new Intent(this, Class.forName(getApplicationContext()
-        .getPackageName() + ".MainActivity"));
+      int resId = this.getResources().getIdentifier("build_config_package", "string", this.getPackageName());
+      Intent intent = new Intent(this, Class.forName(this.getString(resId) + ".MainActivity"));
 
       // Pass along FCM messages/notifications etc.
       Bundle extras = getIntent().getExtras();
